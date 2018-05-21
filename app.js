@@ -7,7 +7,7 @@ var events = require('events');
 const app = express();
 var eventer = new events.EventEmitter();
 
-const port = 4040;
+var port = process.env.PORT || 3000;
 const PUBLIC_FOLDER = "public";
 const DATA_INDEX = "index.json";
 
@@ -39,6 +39,10 @@ app.get('/list', function(req, res){
 	} else{
 		res.end(buildingTxt());
 	}
+});
+
+app.get('/', function (req, res) {
+ res.send(JSON.stringify({ Hello: 'Hello'}));
 });
 
 app.get('/add', function(req, res) {
