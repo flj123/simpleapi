@@ -14,3 +14,5 @@
 2. git push
 3. git push heroku master
 4. heroku open
+
+https://medium.com/@grantspilsbury/build-and-deploy-a-node-express-server-to-heroku-in-10-steps-70c936ab15dc
