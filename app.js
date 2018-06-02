@@ -73,7 +73,7 @@ app.get('/add', function(req, res) {
 	});
 	console.log(totalCount);
 
-	saveDataToPublicFolder(totalCount.toString().padStart(4,"0") + ".json", param, function(err) {
+	saveDataToPublicFolder(totalCount.toString() +"000" + ".json", param, function(err) {
 		if (err) {
 			res.status(404).send('User not saved');
 			return;
