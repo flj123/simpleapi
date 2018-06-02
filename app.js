@@ -12,7 +12,7 @@ var port = process.env.PORT || 3000;
 const PUBLIC_FOLDER = "public";
 const DATA_INDEX = "index.json";
 
-const formPost = efp({
+var formPost = efp({
 	store: "disk",
 	directory: path.join(__dirname, PUBLIC_FOLDER),
 	maxfileSize: 10000000,
