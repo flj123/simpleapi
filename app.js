@@ -3,6 +3,7 @@ const fs = require('fs');
 const efp = require("express-form-post");
 var path = require('path');
 var events = require('events');
+var serveIndex = require('serve-index');
 
 const app = express();
 var eventer = new events.EventEmitter();
@@ -23,6 +24,10 @@ const formPost = efp({
 
 app.use(express.static(PUBLIC_FOLDER));
 app.use(formPost.middleware());
+// Serve URLs like /ftp/thing as public/ftp/thing
+// The express.static serves the file contents
+// The serveIndex is this module serving the directory
+app.use('/ftp', express.static(PUBLIC_FOLDER), serveIndex(PUBLIC_FOLDER, {'icons': true}))
 
 function buildingTxt(){
 	var file = fs.readFileSync('./' + PUBLIC_FOLDER + '/' + DATA_INDEX, 'utf8');
